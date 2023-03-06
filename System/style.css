@@ -1,0 +1,231 @@
+@charset "UTF-8";
+
+:root{
+    --cor01: #e0f2ff;
+    --cor02: rgb(204, 227, 232);
+    --cor03: #EEFFFE;
+    --cor04: #CEEDE3;
+    --cor05: #E0F2FF;
+
+    --main-radius: 5px;
+    --main-padding:5px;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+.container{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 1em;
+    text-transform: uppercase;
+    display: grid;      
+    height: 100vh;  
+    grid-template-columns: 0.5fr 5fr 0.5fr;
+    grid-auto-rows: 0.5fr 5fr minmax(50px, auto);
+    grid-template-areas: 
+        "nav nav nav" 
+        "leftSide main rightSide"
+        "footer footer footer";
+    grid-gap: 0.08em;
+}
+
+nav{
+    text-align: left;
+    background-color: var(--cor01);
+    grid-area: nav;
+    border-radius: var(--main-radius);    
+    padding-top: var(--main-padding);
+    border: 0.5px solid black;
+}
+
+nav .butoes {
+    padding: 2px;
+    margin: 1px;
+    border: 0.1px solid black;
+    border-radius: 5px;
+    line-height: 1em;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 0px 0.5px black;
+
+    transition: box-shadow 0.08s ease, transform 0.08s ease;
+}
+
+/* Passar o mouse em cima */
+button:hover{
+    background-color: var(--cor5);
+    /* transition-duration: 0.2s; */ 
+}
+
+
+.butoes:active{
+    
+    /* tira a sombra de baixo e coloca em cima */
+    box-shadow: 0 0 0 0 black, inset 0.6px 0.6px 0px 0.6px black;
+    
+    /* desloca o botão pra baixo pra dar impressão de afunda o botão */
+    transform: translate(0.5px 0.5px);
+}
+
+main{
+    background-color: var(--cor02);
+    grid-area: main;
+    border-radius: var(--main-radius);    
+    padding-top: var(--main-padding);
+    border: 0.5px solid black;
+}
+
+#rightSide{
+    background-color: var(--cor03);
+    grid-area: rightSide;
+    border-radius: var(--main-radius);    
+    padding-top: var(--main-padding);
+    border: 0.5px solid black;
+    float: left;
+}
+
+#leftSide{
+    background-color: var(--cor04);
+    grid-area: leftSide;
+    border-radius: var(--main-radius);    
+    padding-top: var(--main-padding);
+    border: 0.5px solid black;
+    
+}
+
+#divRightSide1{
+    float: left;
+}
+
+footer{
+    background-color: var(--cor01);
+    grid-area: footer;
+    border-radius: var(--main-radius);    
+    padding-top: var(--main-padding);
+    border: 0.5px solid black;
+}
+
+@media only screen and (max-width: 500px){
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 0.4fr 0.4fr 5fr 0.4fr;
+        grid-template-areas: 
+            "nav"
+            "leftSide"
+            "rightSide"
+            "main"
+            "footer";
+    }
+}
+
+/* Material */
+
+* {
+    box-sizing: border-box;
+}
+
+buttonm {
+    display: block;
+    margin: 20px auto;
+    color: white;
+    border: 0;
+    cursor: pointer;
+    padding: 6px 10px;
+}
+
+.popup-wrapper {
+    display: none;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.popup {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 10% auto;
+    padding: 20px;
+    background-color: rgb(240,240,240);
+    position: relative;
+}
+
+ 
+.popup-close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.3;
+  }
+  .popup-close:hover {
+    opacity: 1;
+  }
+  .popup-close:before, .popup-close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: rgb(16, 145, 4);
+  }
+  .popup-close:before {
+    transform: rotate(45deg);
+  }
+  .popup-close:after {
+    transform: rotate(-45deg);
+  }
+
+.outros-input {
+    width: 100%;
+    border: 2px solid #000000;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+.outros-submit {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.outros-submit:hover,
+.outros-submit:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.outros-submit:active {
+  background: var(--color);
+  color: #fff;
+}
+
+
+/*check box*/

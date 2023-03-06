@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRID SCREEN</title>
+    <link rel="shortcut icon" href="icons/nodesicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <script src="p5/p5.js"></script>
+    <script src="math/math.js" type="text/javascript"></script>
+    <script src="https://use.fontawesome.com/62e43a72a9.js"></script>
+    <script>
+        function captureScreen() {
+          html2canvas(document.body).then(canvas => {
+            var imgData = canvas.toDataURL('image/png');
+            var pdf = new jsPDF('p', 'mm', [canvas.width, canvas.height]);
+            pdf.addImage(imgData, 'PNG', 0, 0);
+            pdf.save("screenshot.pdf");
+          });
+        }
+      </script>
+    
+</head>
+
+<body class="container">
+    <nav>
+        <button type="button" class="butoes">
+            <img src="icons/no-mundo-todo.png" alt="FIT" height="25" width="25" onclick="fitButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/mais-zoom.png" alt="ZOON IN" height="25" width="25" onclick="zoonInButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/reduzir-o-zoom.png" alt="ZOON OUT" height="25" width="25" onclick="zoonOutButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/esquerda.png" alt="ZOON OUT" height="25" width="25" onclick="leftButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/direita.png" alt="ZOON OUT" height="25" width="25" onclick="rightButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/cima.png" alt="ZOON OUT" height="25" width="25" onclick="topButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/baixo.png" alt="ZOON OUT" height="25" width="25" onclick="botButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/linha.png" alt="LINE" height="25" width="25" onclick="lineButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/polyline.png" alt="LINE" height="25" width="25" onclick="polylineButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/point.png" alt="point" height="25" width="25" onclick="pointButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/force2.png" alt="point" height="25" width="25" onclick="forceButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/section2.png" alt="point" height="25" width="25" onclick="sectionButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/mesh.png" alt="point" height="25" width="25" onclick="meshButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/run2.png" alt="point" height="25" width="25" onclick="runButton()">
+        </button>
+        <button type="button" class="butoes">
+            <img src="icons/download.png" alt="point" height="25" width="25" onclick="captureScreen()">
+        </button>    
+     
+    </nav>
+
+    <div id="rightSide">
+        <div id="divRightSide1">
+            <input type="checkbox" id="grid" name="grid" checked="checked" onclick="checkGrid()">
+            <label for="grid">Grid</label>
+
+            <input type="checkbox" id="snap" name="snap" checked="checked" onclick="checkSnap()">
+            <label for="snap">snap</label><br>
+        </div>
+        <div>
+            <label id="PmouseX">x: </label>
+            <label id="PmouseY">y: </label>
+        </div>
+
+        <!-- Material -->
+
+        <button type="button" class="butoes" id="materialButton">
+            <img src="icons/material.png" alt="Material" height="50" width="50" onclick="materialButton()">
+        </button>
+
+        <div class="popup-wrapper">
+            <div class="popup">
+                <div class="popup-close"></div>
+                <div class="popup-content">
+                    <h2>Material type</h2>
+                    <button type="button" class="butoes">
+                        <img src="icons/aco.png" alt="aco" height="50" width="50" onclick="acoButton()">
+                    </button>
+                    <button type="button" class="butoes">
+                        <img src="icons/concreto.png" alt="concreto" height="50" width="50" onclick="concretoButton()">
+                    </button>
+                    <button type="button" class="butoes">
+                        <img src="icons/aluminio.png" alt="aluminio" height="50" width="50" onclick="aluminioButton()">
+                    </button><br><br>
+                    <h3>other type of material</h3><br>
+                    <button type="button" class="teste">
+                        <input type="text" id="outrosButton" style= "text-align:center" class="outros-input" placeholder="Enter a value"><br><br>
+                        <input type="submit" onclick="outrosButton()" value="SUBMIT" class="outros-submit" onsubmit="return validarMaterial()"> 
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <main id="_main" >
+        <script src="sketch.js"></script>
+        <script src="myModel.js" type="text/javascript"></script>
+        <script src="myView.js" type="text/javascript"></script>
+        <script src="myController.js" type="text/javascript"></script>
+        <script src="mouseEvents.js" type="text/javascript"></script>
+        <script src="Line.js" type="text/javascript"></script>
+        <script src="Polyline.js" type="text/javascript"></script>
+        <script src="Point.js" type="text/javascript"></script>
+        <script src="nodeClass.js" type="text/javascript"></script>
+        <script src="elementClass.js" type="text/javascript"></script>
+        <script src="materialClass.js" type="text/javascript"></script>
+        <script src="StructureClass.js" type="text/javascript"></script>
+        <script src="crossSectionClass.js" type="text/javascript"></script>
+        <script src="supportClass.js" type="text/javascript"></script>
+        <script src="loadClass.js" type="text/javascript"></script>
+        <script src="drawClass.js" type="text/javascript"></script>
+    </main>
+    <div id="leftSide">
+        <!-- Check Box-->
+        <button type="button" class="box1">
+            <img src="icons/2.png" alt="aluminio" class="box1" id="box1" height="50" width="50" onclick="checkPrimeiroGenero()">
+        </button><br><br>
+        <button type="button" class="box2">
+            <img src="icons/3.png" alt="aluminio" class="box2" id="box2" height="50" width="50" onclick="checkSegundoGenero()">
+        </button><br><br>
+        <button type="button" class="box3">
+            <img src="icons/1.png" alt="aluminio" class="box3" id="box3" height="50" width="50" onclick="checkTerceiroGenero()">
+        </button>
+    </div>
+    <footer>Footer</footer>
+</body>
+
+
+
+</html>
