@@ -9,4 +9,9 @@ O software WEBMEF faz uma análise prévia da estabilidade do modelo seguida da 
 
 Após o cálculo estrutural é possível visualizar a distribuição de forças nos membros, os deslocamentos e os esforços, incluindo os esforços axiais, transversos e momentos fletores.
 
-![alt text](https://github.com/webmef/edu/blob/master/images/LOGOMEF.jpg)
+<p align="center">
+  <img src="https://github.com/webmef/edu/blob/master/images/LOGOMEF.jpg" width="350" title="hover text">
+  <img src="https://github.com/webmef/edu/blob/master/images/LOGOMEF.jpg" width="350" alt="accessibility text">
+</p>
+
+
