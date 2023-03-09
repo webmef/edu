@@ -8,3 +8,5 @@ O processo de dimensionamento implica a adição de nós e seu posicionamento, a
 O software WEBMEF faz uma análise prévia da estabilidade do modelo seguida da resolução da estrutura através do Método de Elementos Finitos.
 
 Após o cálculo estrutural é possível visualizar a distribuição de forças nos membros, os deslocamentos e os esforços, incluindo os esforços axiais, transversos e momentos fletores.
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
