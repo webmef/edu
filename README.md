@@ -11,7 +11,6 @@ Após o cálculo estrutural é possível visualizar a distribuição de forças 
 
 <p align="center">
   <img src="https://github.com/webmef/edu/blob/master/images/LOGOMEF.jpg" width="350" title="hover text">
-  <img src="https://github.com/webmef/edu/blob/master/images/LOGOMEF.jpg" width="350" alt="accessibility text">
 </p>
 
 
